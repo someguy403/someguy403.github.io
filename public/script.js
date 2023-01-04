@@ -1,4 +1,7 @@
-window.addEventListener('DOMContentLoaded', scrollUp);
+window.addEventListener('DOMContentLoaded', (e) => { console.log(e); });
+if (document.readyState === 'interactive') {
+	scrollUp();
+}
 
 const linksbutton = document.querySelector('#linksbtn');
 linksbutton.addEventListener('click', scrollDown);
@@ -22,7 +25,11 @@ function scrollUp () {
 
 function scrollDown () {
 	window.scrollTo({
-		top: 1000,
+		top: window.innerHeight,
 		behavior: 'smooth'
 	});
 }
+
+window.onresize = () => {
+	window.location.reload();
+};

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
 :root {
 	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 	font-size: 16px;
@@ -17,6 +19,7 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	transition: 1s all;
 }
 
 body {
@@ -25,13 +28,18 @@ body {
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
-	background-color: #1c1c1c;
+	background-color: var(--body-bgc);
 }
 
 #app {
 	width: 100%;
 	height: fit-content;
 	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .wrapper {
@@ -53,10 +61,8 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	outline: 1px solid white;
+	outline: 1px solid var(--section-outline);
 }
-
-/** Section 1 */
 
 #section-1 #gogglesimg {
 	min-width: 150px;
@@ -64,9 +70,9 @@ body {
 	max-width: 150px;
 	max-height: 150px;
 	border-radius: 50%;
-	border: 5px solid white;
 	pointer-events: none;
 	animation: rotate 5s infinite ease;
+	border: 5px solid var(--gogsi-border);
 }
 
 @keyframes rotate {
@@ -115,26 +121,59 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: grey;
 	color: black;
 	border-radius: 5px;
 	padding: 1.5rem;
+	background-color: var(--div1-bgc);
 }
-
-/** Section 2 */
 
 #links {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	min-width: 300px;
+	min-width: 250px;
+	gap: 10px;
 }
 
 #links > a {
-	padding: 10px;
+	width: 30vw;
+	min-width: 250px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	border-radius: 24px;
+	transition: 1s background-color, 0.5s color;
+	font-family: "JetBrains Mono", monospace;
+	border: 2px solid var(--links-border);
+	color: var(--links-border);
 }
 
-/** Buttons */
+#links > a:hover {
+	background-color: var(--linkshover-border);
+	color: var(--linkshover-color);
+}
+
+#links > a > span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	opacity: 0;
+	transition: 0.5s all;
+}
+
+#links > a:hover > span {
+	opacity: 1;
+	transition: 0.5s all;
+}
+
+#links > a > span > img {
+	width: 25px;
+	height: 25px;
+}
+
 #linksbtn {
 	position: absolute;
 	bottom: 10px;
@@ -155,4 +194,32 @@ body {
 	outline: none;
 	border: none;
 	border-radius: 2px;
+	background-color: var(--btntogglebtn-bgc);
+}
+
+.btn:active,
+#togglebtn:active {
+	opacity: 0.6;
+}
+
+#togglebtn {
+	height: auto;
+	width: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--btntogglebtn-bgc);
+}
+
+#togglebtn svg {
+	width: 25px;
+	height: 25px;
+	--btn-color: white;
 }
